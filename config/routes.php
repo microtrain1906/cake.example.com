@@ -69,6 +69,15 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
+    Router::connect(
+        '/users/login',
+        [
+            'plugin' => 'CakeDC/Users',
+            'controller' => 'Users',
+            'action' => 'login'
+        ]
+    );
+    
     /**
      * Connect catchall routes for all controllers.
      *

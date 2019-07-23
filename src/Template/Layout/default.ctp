@@ -42,9 +42,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
+<!--  Default Nav
+            <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
+            <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li> 
+-->
+            <li><a href="/posts">Blog</a></li>
+                <?php if(!empty($session['id'])): ?>
+                    <li><a href="/logout">Logout</a></li>
+                <?php else: ?>
+                    <li><a href="/login">Login</a></li>
+                <?php endif; ?>
+        </ul>
         </div>
     </nav>
     <?= $this->Flash->render() ?>

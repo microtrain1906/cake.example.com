@@ -202,3 +202,31 @@ Type::build('timestamp')
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
 Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
+Configure::write('OAuth.providers.facebook.options.clientId', 'YOUR APP ID');
+Configure::write('OAuth.providers.facebook.options.clientSecret', 'YOUR APP SECRET');
+Configure::write('Users', [
+    'Email' => [
+        //determines if the user should include email
+        'required' => true,
+        //determines if registration workflow includes email validation
+        'validate' => true,
+    ],
+    'Social' => [
+        //enable social login
+        'login' => false,
+    ],
+    'Key' => [
+        'Session' => [
+            //session key to store the social auth data
+            'social' => 'Users.social',
+        ],
+        //form key to store the social auth data
+        'Form' => [
+            'social' => 'social'
+        ],
+        'Data' => [
+            //data key to store email coming from social networks
+            'socialEmail' => 'info.email',
+        ],
+    ],
+]);
