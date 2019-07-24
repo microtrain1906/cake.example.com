@@ -69,7 +69,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-    Router::connect(
+ //Turn OFF to have full working CRUD
+        Router::connect(
         '/users/login',
         [
             'plugin' => 'CakeDC/Users',

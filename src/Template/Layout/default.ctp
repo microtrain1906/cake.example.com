@@ -42,16 +42,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-<!--  Default Nav
+<!--  Default Nav Change This Below
             <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
             <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li> 
--->
+Added PHP for login and logout -->
             <li><a href="/posts">Blog</a></li>
-                <?php if(!empty($session['id'])): ?>
+                <?php
+                if(!empty($session['id'])): ?>
                     <li><a href="/logout">Logout</a></li>
-                <?php else: ?>
+                <?php 
+                else: ?>
                     <li><a href="/login">Login</a></li>
-                <?php endif; ?>
+                <?php
+                endif; ?>
         </ul>
         </div>
     </nav>

@@ -45,10 +45,11 @@ class AppController extends Controller
 
         $this->loadComponent('Auth');
 
-        $this->loadComponent('RequestHandler', [
-            'enableBeforeRedirect' => false,
-        ]);
-        $this->loadComponent('Flash');
+        // Important: add the 'enableBeforeRedirect' config or or disable deprecation warnings
+        $this->loadComponent('RequestHandler', 
+            ['enableBeforeRedirect' => false]);
+        $this->loadComponent('Flash');                
+        $this->loadComponent('CakeDC/Users.UsersAuth');
 
         /*
          * Enable the following component for recommended CakePHP security settings.
@@ -56,8 +57,14 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
 
+        $this->Auth->allow();
+
         $this->session = $this->getRequest()->getSession();
-        $this->Auth->deny();
+//        if ($this->request->controller=='Users'){ */
+//            if ($this->session->read('Auth.User.id')){
+//                $this->Auth->allow();  
+//          }
+//          }
 
         $this->set('session', $this->session->read('Auth.User'));
     }
